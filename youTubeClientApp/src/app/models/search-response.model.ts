@@ -1,10 +1,10 @@
-import { IItems } from '../models/search-item.model';
+import { IItem } from '../models/search-item.model';
 
 export interface IResponse {
   kind: string;
   etag: string;
   pageInfo: IPageInfo;
-  items: IItems[];
+  items: IItem[];
 }
 
 interface IPageInfo {
