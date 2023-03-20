@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.scss'],
 })
-export class SearchInputComponent {
-
-}
+export class SearchInputComponent {}
