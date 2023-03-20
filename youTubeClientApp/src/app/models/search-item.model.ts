@@ -1,4 +1,4 @@
-export interface IItems {
+export interface IItem {
   kind: string;
   etag: string;
   id: string;
@@ -17,25 +17,25 @@ interface ISnippet {
   categoryId: string;
   liveBroadcastContent: string;
   defaultLanguage?: string;
-  localized: ILocalized;
+  localized: ILocalization;
   defaultAudioLanguage: string;
 }
 
 interface IThumbnails {
-  default: IThumbnailsItems;
-  medium: IThumbnailsItems;
-  high: IThumbnailsItems;
-  standard: IThumbnailsItems;
-  maxres: IThumbnailsItems;
+  default: IThumbnail;
+  medium: IThumbnail;
+  high: IThumbnail;
+  standard: IThumbnail;
+  maxres: IThumbnail;
 }
 
-interface IThumbnailsItems {
+interface IThumbnail {
   url: string;
   width: number;
   height: number;
 }
 
-interface ILocalized {
+interface ILocalization {
   title: string;
   description: string;
 }
