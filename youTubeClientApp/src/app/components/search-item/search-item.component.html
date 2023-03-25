@@ -1,1 +1,31 @@
-<p>search-item works!</p>
+<div
+  class="search_result_card"
+  appChangeColorBorder
+  [publicationDate]="itemResponse.snippet.publishedAt"
+>
+  <img
+    [src]="itemResponse.snippet.thumbnails.medium.url"
+    alt="img-preview"
+    class="img_card"
+  />
+  <div class="block_statistics">
+    <div class="block_statistics_item">
+      <img src="../../../assets/viewed.svg" alt="view" />
+      <span>{{ itemResponse.statistics.viewCount }}</span>
+    </div>
+    <div class="block_statistics_item">
+      <img src="../../../assets/liked.svg" alt="like" />
+      <span>{{ itemResponse.statistics.likeCount }}</span>
+    </div>
+    <div class="block_statistics_item">
+      <img src="../../../assets/dislike.svg" alt="dislike" />
+      <span>{{ itemResponse.statistics.dislikeCount }}</span>
+    </div>
+    <div class="block_statistics_item">
+      <img src="../../../assets/commented.svg" alt="comment" />
+      <span>{{ itemResponse.statistics.commentCount }}</span>
+    </div>
+  </div>
+  <p class="search_result_title">{{ itemResponse.snippet.title }}</p>
+  <button class="search_result_button">more...</button>
+</div>
