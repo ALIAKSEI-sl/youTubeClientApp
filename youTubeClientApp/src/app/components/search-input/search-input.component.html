@@ -1,1 +1,19 @@
-<p>search-input works!</p>
+<div class="search_input_block_item">
+  <img src="../../../assets/logo.svg" alt="logo" />
+  <div class="search_input">
+    <input
+      type="text"
+      placeholder="What are you want to find out?"
+      id="search_string"
+      [formControl]="searchForm"
+    />
+    <button type="submit" class="button_search" (click)="getFormValue()">
+      search
+    </button>
+  </div>
+  <div
+    class="search_settings"
+    (click)="changeSettingsVisibility()"
+    title="settings"
+  ></div>
+</div>
