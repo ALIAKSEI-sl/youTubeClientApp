@@ -18,7 +18,6 @@ export class HeaderComponent {
 
   changeSettingsVisibility(areVisible: boolean) {
     this.areSettingsVisible = areVisible;
-    console.log(this.areSettingsVisible);
   }
 
   getSearchFormValue(value: string) {
