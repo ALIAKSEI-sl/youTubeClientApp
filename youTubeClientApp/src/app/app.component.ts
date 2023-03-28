@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { SortingDirection } from './models/search-response.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,14 +14,14 @@ export class AppComponent {
 
   filterWord = '';
 
-  isDateIncreasing: boolean | null = null;
+  typeOfSortingByDate: SortingDirection | undefined = undefined;
 
-  isCountOfViewsIncreasing: boolean | null = null;
+  typeOfSortingByCountOfView: SortingDirection | undefined = undefined;
 
   getSearchFormValue(value: string) {
     this.searchFormValue = value;
-    this.isDateIncreasing = null;
-    this.isCountOfViewsIncreasing = null;
+    this.typeOfSortingByDate = undefined;
+    this.typeOfSortingByCountOfView = undefined;
   }
 
   filterSearch(value: string) {
@@ -27,20 +29,20 @@ export class AppComponent {
   }
 
   filterDate() {
-    this.isCountOfViewsIncreasing = null;
-    if (this.isDateIncreasing === null) {
-      this.isDateIncreasing = true;
+    this.typeOfSortingByCountOfView = undefined;
+    if (!this.typeOfSortingByDate) {
+      this.typeOfSortingByDate = 'ASC';
     } else {
-      this.isDateIncreasing = !this.isDateIncreasing;
+      this.typeOfSortingByDate = this.typeOfSortingByDate === 'ASC' ? 'DESC' : 'ASC';
     }
   }
 
   filterCountOfViews() {
-    this.isDateIncreasing = null;
-    if (this.isCountOfViewsIncreasing === null) {
-      this.isCountOfViewsIncreasing = true;
+    this.typeOfSortingByDate = undefined;
+    if (!this.typeOfSortingByCountOfView) {
+      this.typeOfSortingByCountOfView = 'ASC';
     } else {
-      this.isCountOfViewsIncreasing = !this.isCountOfViewsIncreasing;
+      this.typeOfSortingByCountOfView = this.typeOfSortingByCountOfView === 'ASC' ? 'DESC' : 'ASC';
     }
   }
 }

@@ -3,8 +3,8 @@
     *ngFor="
       let itemResponse of youTubeResponse
         | filterSearch : filterWord
-        | sortingCountOfViews : isCountOfViewsIncreasing
-        | sortingDate : isDateIncreasing
+        | sortingCountOfViews : typeOfSortingByCountOfView
+        | sortingDate : typeOfSortingByDate
     "
     [itemResponse]="itemResponse"
   >

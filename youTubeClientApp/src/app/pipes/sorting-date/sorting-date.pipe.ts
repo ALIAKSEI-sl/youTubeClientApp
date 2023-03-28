@@ -1,14 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 import { IItem } from '../../models/search-item.model';
+import { SortingDirection } from '../../models/search-response.model';
 
 @Pipe({
   name: 'sortingDate',
 })
 export class SortingDatePipe implements PipeTransform {
-  transform(itemResponse: IItem[], isIncreasing: boolean | null): IItem[] {
-    if (isIncreasing === null) return itemResponse;
-    if (isIncreasing) {
+  transform(itemResponse: IItem[], typeOfSorting: SortingDirection | undefined): IItem[] {
+    if (!typeOfSorting) return itemResponse;
+    if (typeOfSorting === 'ASC') {
       return itemResponse.sort(
         (a, b) =>
           new Date(a.snippet.publishedAt).getTime() -

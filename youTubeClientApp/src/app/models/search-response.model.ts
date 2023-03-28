@@ -11,3 +11,5 @@ interface IPageInfo {
   totalResults: number;
   resultsPerPage: number;
 }
+
+export type SortingDirection = 'ASC' | 'DESC';

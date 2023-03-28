@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
 import { IItem } from '../../models/search-item.model';
+import { SortingDirection } from '../../models/search-response.model';
 import { response } from '../../response/mock-response';
 
 @Component({
@@ -13,9 +14,9 @@ export class SearchResultsComponent implements OnChanges {
 
   @Input() filterWord = '';
 
-  @Input() isDateIncreasing: boolean | null;
+  @Input() typeOfSortingByDate: SortingDirection | undefined;
 
-  @Input() isCountOfViewsIncreasing: boolean | null;
+  @Input() typeOfSortingByCountOfView: SortingDirection | undefined;
 
   youTubeResponse: IItem[];
 
