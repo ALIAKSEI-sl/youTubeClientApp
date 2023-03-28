@@ -1,14 +1,14 @@
 <div class="header">
   <app-search-input
-    class="search_input_block"
+    class="search-input-block"
     (emitterSettingsVisible)="changeSettingsVisibility($event)"
     (emitterSearchFormValue)="getSearchFormValue($event)"
   ></app-search-input>
-  <app-user-login class="user_login_block"></app-user-login>
+  <app-user-login class="user-login-block"></app-user-login>
 </div>
 <app-sorting
   *ngIf="areSettingsVisible"
-  class="sorting_block"
+  class="sorting-block"
   (emitterFilterSearch)="filterSearch($event)"
   (emitterFilterDate)="filterDate()"
   (emitterFilterViews)="filterCountOfViews()"

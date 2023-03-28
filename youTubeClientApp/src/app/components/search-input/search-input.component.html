@@ -1,18 +1,18 @@
-<div class="search_input_block_item">
+<div class="search-input-block-item">
   <img src="../../../assets/logo.svg" alt="logo" />
   <div class="search_input">
     <input
       type="text"
       placeholder="What are you want to find out?"
-      id="search_string"
+      class="search-string"
       [formControl]="searchForm"
     />
-    <button type="submit" class="button_search" (click)="getFormValue()">
+    <button type="submit" class="button-search" (click)="getFormValue()">
       search
     </button>
   </div>
   <div
-    class="search_settings"
+    class="search-settings"
     (click)="changeSettingsVisibility()"
     title="settings"
   ></div>

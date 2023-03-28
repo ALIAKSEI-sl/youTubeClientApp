@@ -1,4 +1,4 @@
-.sorting_block_item {
+.sorting-block-item {
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -8,21 +8,21 @@
   line-height: 14px;
 }
 
-#sorting_string {
+.sorting-string {
   width: 149px;
   height: 14px;
 }
 
-.sorting_block_item span {
+.sorting-block-item span {
   text-decoration: underline;
   color: #2f80ed;
 }
 
-.sorting_block_item span:hover {
+.sorting-block-item span:hover {
   cursor: pointer;
 }
 
-#sorting_by {
+.sorting-by {
   color: #929292;
   text-decoration: none;
   cursor: auto;
