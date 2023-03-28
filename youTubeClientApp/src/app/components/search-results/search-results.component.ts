@@ -18,7 +18,7 @@ export class SearchResultsComponent implements OnChanges {
 
   @Input() typeOfSortingByCountOfView: SortingDirection | undefined;
 
-  youTubeResponse: IItem[];
+  youTubeResponse: IItem[] = [];
 
   ngOnChanges() {
     if (this.searchFormValue) {

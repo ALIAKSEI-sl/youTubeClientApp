@@ -7,7 +7,10 @@ import { SortingDirection } from '../../models/search-response.model';
   name: 'sortingCountOfViews',
 })
 export class SortingCountOfViewsPipe implements PipeTransform {
-  transform(itemResponse: IItem[], typeOfSorting: SortingDirection | undefined): IItem[] {
+  transform(
+    itemResponse: IItem[],
+    typeOfSorting: SortingDirection | undefined
+  ): IItem[] {
     if (!typeOfSorting) return itemResponse;
     if (typeOfSorting === 'ASC') {
       return itemResponse.sort(

@@ -8,5 +8,5 @@ import { IItem } from '../../models/search-item.model';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent {
-  @Input() itemResponse: IItem;
+  @Input() itemResponse: IItem | undefined = undefined;
 }

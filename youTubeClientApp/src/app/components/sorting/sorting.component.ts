@@ -8,21 +8,21 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SortingComponent {
   filterWord = '';
 
-  @Output() emitterFilterSearch = new EventEmitter<string>();
+  @Output() searchFilter = new EventEmitter<string>();
 
-  @Output() emitterFilterDate = new EventEmitter();
+  @Output() dateFilter = new EventEmitter();
 
-  @Output() emitterFilterViews = new EventEmitter();
+  @Output() viewsFilter = new EventEmitter();
 
-  filterSearch() {
-    this.emitterFilterSearch.emit(this.filterWord);
+  startFilterSearch() {
+    this.searchFilter.emit(this.filterWord);
   }
 
-  filterDate() {
-    this.emitterFilterDate.emit();
+  startFilterDate() {
+    this.dateFilter.emit();
   }
 
-  filterCountOfViews() {
-    this.emitterFilterViews.emit();
+  startFilterCountOfViews() {
+    this.viewsFilter.emit();
   }
 }

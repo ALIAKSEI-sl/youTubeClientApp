@@ -8,31 +8,31 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent {
   areSettingsVisible = false;
 
-  @Output() emitterSearchFormValue = new EventEmitter<string>();
+  @Output() searchTermChange = new EventEmitter<string>();
 
-  @Output() emitterFilterSearch = new EventEmitter<string>();
+  @Output() searchFilter = new EventEmitter<string>();
 
-  @Output() emitterFilterDate = new EventEmitter();
+  @Output() dateFilter = new EventEmitter();
 
-  @Output() emitterFilterCountOfViews = new EventEmitter();
+  @Output() viewsFilter = new EventEmitter();
 
   changeSettingsVisibility(areVisible: boolean) {
     this.areSettingsVisible = areVisible;
   }
 
-  getSearchFormValue(value: string) {
-    this.emitterSearchFormValue.emit(value);
+  startSearchFormValue(value: string) {
+    this.searchTermChange.emit(value);
   }
 
-  filterSearch(value: string) {
-    this.emitterFilterSearch.emit(value);
+  startFilterSearch(value: string) {
+    this.searchFilter.emit(value);
   }
 
-  filterDate() {
-    this.emitterFilterDate.emit();
+  startFilterDate() {
+    this.dateFilter.emit();
   }
 
-  filterCountOfViews() {
-    this.emitterFilterCountOfViews.emit();
+  startFilterCountOfViews() {
+    this.viewsFilter.emit();
   }
 }

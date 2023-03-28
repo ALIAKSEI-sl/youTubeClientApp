@@ -4,7 +4,7 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
   selector: '[appChangeColorBorder]',
 })
 export class ChangeColorBorderDirective implements AfterViewInit {
-  @Input() publicationDate: string;
+  @Input() publicationDate = '';
 
   constructor(private element: ElementRef) {}
 

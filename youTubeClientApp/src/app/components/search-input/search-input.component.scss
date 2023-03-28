@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.search-string {
+.search-tern {
   width: 396px;
   height: 24px;
   border-width: 0;
@@ -31,11 +31,11 @@
   font-family: "Roboto";
   font-size: 12px;
   line-height: 14px;
-}
 
-.search-string::placeholder {
-  font-family: "Roboto";
-  color: #929292;
+  &::placeholder {
+    font-family: "Roboto";
+    color: #929292;
+  }
 }
 
 .button-search {

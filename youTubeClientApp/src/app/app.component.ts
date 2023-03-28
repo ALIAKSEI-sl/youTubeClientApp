@@ -18,31 +18,33 @@ export class AppComponent {
 
   typeOfSortingByCountOfView: SortingDirection | undefined = undefined;
 
-  getSearchFormValue(value: string) {
+  startSearchFormValue(value: string) {
     this.searchFormValue = value;
     this.typeOfSortingByDate = undefined;
     this.typeOfSortingByCountOfView = undefined;
   }
 
-  filterSearch(value: string) {
+  startFilterSearch(value: string) {
     this.filterWord = value;
   }
 
-  filterDate() {
+  startFilterDate() {
     this.typeOfSortingByCountOfView = undefined;
     if (!this.typeOfSortingByDate) {
       this.typeOfSortingByDate = 'ASC';
     } else {
-      this.typeOfSortingByDate = this.typeOfSortingByDate === 'ASC' ? 'DESC' : 'ASC';
+      this.typeOfSortingByDate =
+        this.typeOfSortingByDate === 'ASC' ? 'DESC' : 'ASC';
     }
   }
 
-  filterCountOfViews() {
+  startFilterCountOfViews() {
     this.typeOfSortingByDate = undefined;
     if (!this.typeOfSortingByCountOfView) {
       this.typeOfSortingByCountOfView = 'ASC';
     } else {
-      this.typeOfSortingByCountOfView = this.typeOfSortingByCountOfView === 'ASC' ? 'DESC' : 'ASC';
+      this.typeOfSortingByCountOfView =
+        this.typeOfSortingByCountOfView === 'ASC' ? 'DESC' : 'ASC';
     }
   }
 }

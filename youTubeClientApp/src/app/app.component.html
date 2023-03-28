@@ -1,9 +1,9 @@
 <div class="wrapper">
   <app-header
-    (emitterSearchFormValue)="getSearchFormValue($event)"
-    (emitterFilterSearch)="filterSearch($event)"
-    (emitterFilterDate)="filterDate()"
-    (emitterFilterCountOfViews)="filterCountOfViews()"
+    (searchTermChange)="startSearchFormValue($event)"
+    (searchFilter)="startFilterSearch($event)"
+    (dateFilter)="startFilterDate()"
+    (viewsFilter)="startFilterCountOfViews()"
   ></app-header>
   <app-search-results
     class="search-result-block"

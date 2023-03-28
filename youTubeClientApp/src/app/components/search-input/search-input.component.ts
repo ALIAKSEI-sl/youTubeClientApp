@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-input',
@@ -7,26 +6,20 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./search-input.component.scss'],
 })
 export class SearchInputComponent {
-  searchForm = new FormControl('Angular');
+  valueInput = 'angular';
 
   areSettingsVisible = false;
 
-  searchFormValue = '';
+  @Output() visibilitySettingsChange = new EventEmitter<boolean>();
 
-  @Output() emitterSettingsVisible = new EventEmitter<boolean>();
-
-  @Output() emitterSearchFormValue = new EventEmitter<string>();
+  @Output() searchTermChange = new EventEmitter<string>();
 
   changeSettingsVisibility() {
     this.areSettingsVisible = !this.areSettingsVisible;
-    this.emitterSettingsVisible.emit(this.areSettingsVisible);
+    this.visibilitySettingsChange.emit(this.areSettingsVisible);
   }
 
-  getFormValue() {
-    if (this.searchForm.value) {
-      this.searchFormValue = this.searchForm.value;
-    }
-    this.searchForm.setValue('');
-    this.emitterSearchFormValue.emit(this.searchFormValue);
+  sendValueInput() {
+    this.searchTermChange.emit(this.valueInput);
   }
 }
