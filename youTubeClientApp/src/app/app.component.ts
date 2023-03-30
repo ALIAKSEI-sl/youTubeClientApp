@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { SortingDirection } from './models/search-response.model';
+import { SortingDirection } from './shared-module/models/search-response.model';
 
 @Component({
   selector: 'app-root',

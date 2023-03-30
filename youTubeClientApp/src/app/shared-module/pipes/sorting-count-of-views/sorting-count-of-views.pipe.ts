@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { IItem } from '../../../models/search-item.model';
-import { SortingDirection } from '../../../models/search-response.model';
+import { IItem } from '../../../shared-module/models/search-item.model';
+import { SortingDirection } from '../../../shared-module/models/search-response.model';
 
 @Pipe({
   name: 'sortingCountOfViews',
