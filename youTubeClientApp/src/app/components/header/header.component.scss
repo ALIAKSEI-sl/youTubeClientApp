@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #e5e5e5;
+
+  .search-input-block {
+    margin-left: calc((100% - 570px) / 2);
+  }
+
+  .user-login-block {
+    margin-left: auto;
+    margin-right: 156px;
+  }
+}
+
+.sorting-block {
+  display: block;
+  background-color: #e5e5e5;
+}

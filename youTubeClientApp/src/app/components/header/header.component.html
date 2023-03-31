@@ -1,1 +1,15 @@
-<p>header works!</p>
+<div class="header">
+  <app-search-input
+    class="search-input-block"
+    (visibilitySettingsChange)="changeSettingsVisibility($event)"
+    (searchTermChange)="startSearchFormValue($event)"
+  ></app-search-input>
+  <app-user-login class="user-login-block"></app-user-login>
+</div>
+<app-sorting
+  *ngIf="areSettingsVisible"
+  class="sorting-block"
+  (searchFilter)="startFilterSearch($event)"
+  (dateFilter)="startFilterDate()"
+  (viewsFilter)="startFilterCountOfViews()"
+></app-sorting>

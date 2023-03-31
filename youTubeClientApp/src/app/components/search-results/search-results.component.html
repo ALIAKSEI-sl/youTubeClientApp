@@ -1,1 +1,12 @@
-<p>search-results works!</p>
+<div class="search-result-block-item">
+  <app-search-item
+    *ngFor="
+      let itemResponse of youTubeResponse
+        | filterSearch : filterWord
+        | sortingCountOfViews : typeOfSortingByCountOfView
+        | sortingDate : typeOfSortingByDate
+    "
+    [itemResponse]="itemResponse"
+  >
+  </app-search-item>
+</div>

@@ -1,1 +1,31 @@
-<p>search-item works!</p>
+<div *ngIf="itemResponse"
+  class="search-result-card"
+  appChangeColorBorder
+  [publicationDate]="itemResponse.snippet.publishedAt"
+>
+  <img
+    [src]="itemResponse.snippet.thumbnails.medium.url"
+    alt="img-preview"
+    class="img-card"
+  />
+  <div class="block-statistics">
+    <div class="block-statistics-item">
+      <img src="../../../assets/viewed.svg" alt="view" />
+      <span>{{ itemResponse.statistics.viewCount }}</span>
+    </div>
+    <div class="block-statistics-item">
+      <img src="../../../assets/liked.svg" alt="like" />
+      <span>{{ itemResponse.statistics.likeCount }}</span>
+    </div>
+    <div class="block-statistics-item">
+      <img src="../../../assets/dislike.svg" alt="dislike" />
+      <span>{{ itemResponse.statistics.dislikeCount }}</span>
+    </div>
+    <div class="block-statistics-item">
+      <img src="../../../assets/commented.svg" alt="comment" />
+      <span>{{ itemResponse.statistics.commentCount }}</span>
+    </div>
+  </div>
+  <p class="search-result-title">{{ itemResponse.snippet.title }}</p>
+  <button class="search-result-button">more...</button>
+</div>

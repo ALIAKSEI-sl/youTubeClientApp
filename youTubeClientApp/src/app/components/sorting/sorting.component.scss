@@ -1,0 +1,29 @@
+.sorting-block-item {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 18px 0;
+  font-size: 12px;
+  font-family: "Roboto";
+  line-height: 14px;
+}
+
+.sorting-string {
+  width: 149px;
+  height: 14px;
+}
+
+.sorting-block-item span {
+  text-decoration: underline;
+  color: #2f80ed;
+}
+
+.sorting-block-item span:hover {
+  cursor: pointer;
+}
+
+.sorting-by {
+  color: #929292;
+  text-decoration: none;
+  cursor: auto;
+}
