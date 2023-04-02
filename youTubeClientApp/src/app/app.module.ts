@@ -3,18 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModuleModule } from './core-module/core-module.module';
-import { YoutubeModuleModule } from './youtube-module/youtube-module.module';
+import { CoreModule } from './core-module/core.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CoreModuleModule,
-    YoutubeModuleModule
-  ],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, CoreModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
