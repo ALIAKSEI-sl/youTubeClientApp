@@ -1,34 +1,16 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { IItem } from '../../../shared-module/models/search-item.model';
-import { SortingDirection } from '../../../shared-module/models/search-response.model';
-import { response } from '../../response/mock-response';
+import { FilteringResultService } from '../../services/filtering-result.service';
+import { YouTubeResponseService } from '../../services/you-tube-response.service';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnChanges {
-  @Input() searchFormValue = '';
-
-  @Input() filterWord = '';
-
-  @Input() typeOfSortingByDate: SortingDirection | undefined;
-
-  @Input() typeOfSortingByCountOfView: SortingDirection | undefined;
-
-  youTubeResponse: IItem[] = [];
-
-  ngOnChanges() {
-    if (this.searchFormValue) {
-      this.youTubeResponse = response.items.filter((item) =>
-        item.snippet.title
-          .toLowerCase()
-          .includes(this.searchFormValue.toLowerCase())
-      );
-    } else {
-      this.youTubeResponse = [];
-    }
-  }
+export class SearchResultsComponent {
+  constructor(
+    public youTubeResponseService: YouTubeResponseService,
+    public filteringResultService: FilteringResultService
+  ) {}
 }
