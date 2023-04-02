@@ -3,6 +3,7 @@
   class="search-result-card"
   appChangeColorBorder
   [publicationDate]="itemResponse.snippet.publishedAt"
+  [typeElement]="'itemResponse'"
 >
   <img
     [src]="itemResponse.snippet.thumbnails.medium.url"
@@ -28,5 +29,5 @@
     </div>
   </div>
   <p class="search-result-title">{{ itemResponse.snippet.title }}</p>
-  <button class="search-result-button">more...</button>
+  <a [routerLink]="itemResponse.id" class="search-result-button">more...</a>
 </div>
