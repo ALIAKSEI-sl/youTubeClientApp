@@ -1,0 +1,46 @@
+<a
+  routerLink="/main"
+  class="button-back"
+  appChangeColorBorder
+  [publicationDate]="date"
+  [typeElement]="'button-back'"
+></a>
+<div
+  class="item-card"
+  appChangeColorBorder
+  [publicationDate]="date"
+  [typeElement]="'item-card'"
+>
+  <img [src]="imgSrc" alt="preview" class="item-img" />
+  <div
+    class="block-description"
+    appChangeColorBorder
+    [publicationDate]="date"
+    [typeElement]="'block-description'"
+  >
+    <div>
+      <p class="item-title">{{ title }}</p>
+      <p class="item-date">{{ date | uploadDateFormat }}</p>
+      <p class="header-description">Description:</p>
+      <p class="item-description">{{ description }}</p>
+    </div>
+    <div class="block-statistics">
+      <div class="block-statistics-item">
+        <img src="../../../../assets/viewed.svg" alt="view" />
+        <span>{{ viewCount }}</span>
+      </div>
+      <div class="block-statistics-item">
+        <img src="../../../../assets/liked.svg" alt="like" />
+        <span>{{ likeCount }}</span>
+      </div>
+      <div class="block-statistics-item">
+        <img src="../../../../assets/dislike.svg" alt="dislike" />
+        <span>{{ dislikeCount }}</span>
+      </div>
+      <div class="block-statistics-item">
+        <img src="../../../../assets/commented.svg" alt="comment" />
+        <span>{{ commentCount }}</span>
+      </div>
+    </div>
+  </div>
+</div>
