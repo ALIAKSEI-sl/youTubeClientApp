@@ -1,0 +1,23 @@
+<div class="block-login">
+  <h2 class="header-login">Login</h2>
+  <label for="login" class="label-login">login</label>
+  <input
+    type="text"
+    id="login"
+    class="input-login"
+    [(ngModel)]="userLogin"
+    (input)="isLoginOrPasswordEmpty = false"
+  />
+  <label for="password" class="label-password">password</label>
+  <input
+    type="password"
+    id="password"
+    class="input-password"
+    [(ngModel)]="userPassword"
+    (input)="isLoginOrPasswordEmpty = false"
+  />
+  <p *ngIf="isLoginOrPasswordEmpty" class="empty-data">
+    Enter your login and password!
+  </p>
+  <button class="submit-login" (click)="logIn()">Login</button>
+</div>
