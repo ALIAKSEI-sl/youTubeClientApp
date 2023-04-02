@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { FilteringResultService } from 'src/app/youtube-module/services/filtering-result.service';
 
 @Component({
   selector: 'app-sorting',
@@ -8,21 +10,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SortingComponent {
   filterWord = '';
 
-  @Output() searchFilter = new EventEmitter<string>();
+  constructor(private filteringResultService: FilteringResultService) {}
 
-  @Output() dateFilter = new EventEmitter();
-
-  @Output() viewsFilter = new EventEmitter();
-
-  startFilterSearch() {
-    this.searchFilter.emit(this.filterWord);
+  filterByDate() {
+    this.filteringResultService.changeSortingByDate();
   }
 
-  startFilterDate() {
-    this.dateFilter.emit();
+  filterByCountOfView() {
+    this.filteringResultService.changeSortingByCountOfView();
   }
 
-  startFilterCountOfViews() {
-    this.viewsFilter.emit();
+  filterByWorld() {
+    this.filteringResultService.changeSortingByWorld(this.filterWord);
   }
 }

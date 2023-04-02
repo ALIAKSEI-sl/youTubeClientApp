@@ -1,12 +1,12 @@
 <div class="sorting-block-item">
   <span class="sorting-by">Sorting by:</span>
-  <span (click)="startFilterDate()">date</span>
-  <span (click)="startFilterCountOfViews()">count of views</span>
+  <span (click)="filterByDate()">date</span>
+  <span (click)="filterByCountOfView()">count of views</span>
   <span>by word or sentence</span>
   <input
     type="text"
     class="sorting-string"
     [(ngModel)]="filterWord"
-    (input)="startFilterSearch()"
+    (input)="filterByWorld()"
   />
 </div>
