@@ -1,4 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { FilteringResultService } from 'src/app/youtube-module/services/filtering-result.service';
+import { YouTubeResponseService } from 'src/app/youtube-module/services/you-tube-response.service';
 
 @Component({
   selector: 'app-search-input',
@@ -6,20 +10,28 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search-input.component.scss'],
 })
 export class SearchInputComponent {
-  valueInput = 'angular';
+  @Output() visibilitySettingsChange = new EventEmitter<boolean>();
+
+  searchTerm = 'angular';
 
   areSettingsVisible = false;
 
-  @Output() visibilitySettingsChange = new EventEmitter<boolean>();
-
-  @Output() searchTermChange = new EventEmitter<string>();
+  constructor(
+    private youTubeResponseService: YouTubeResponseService,
+    private filteringResultService: FilteringResultService,
+    private router: Router
+  ) {}
 
   changeSettingsVisibility() {
     this.areSettingsVisible = !this.areSettingsVisible;
     this.visibilitySettingsChange.emit(this.areSettingsVisible);
   }
 
-  sendValueInput() {
-    this.searchTermChange.emit(this.valueInput);
+  sendSearchTerm() {
+    this.youTubeResponseService.sendRequest(
+      this.searchTerm.trim().toLowerCase()
+    );
+    this.filteringResultService.resetFiltering();
+    this.router.navigateByUrl('/main');
   }
 }
