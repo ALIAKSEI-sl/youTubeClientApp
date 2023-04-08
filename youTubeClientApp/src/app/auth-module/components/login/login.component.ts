@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { AuthorizationService } from '../../services/authorization.service';
 
@@ -8,20 +9,15 @@ import { AuthorizationService } from '../../services/authorization.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  userLogin = '';
-
-  userPassword = '';
-
-  isLoginOrPasswordEmpty = false;
+  authGroup = new FormGroup({
+    login: new FormControl(),
+    password: new FormControl()
+  })
 
   constructor(public authorizationService: AuthorizationService) {}
 
-  logIn() {
-    if (this.userLogin && this.userPassword) {
-      this.authorizationService.logIn();
-      this.authorizationService.changeName(this.userLogin);
-    } else {
-      this.isLoginOrPasswordEmpty = true;
-    }
+  submitForm() {
+    this.authorizationService.logIn();
+    this.authorizationService.changeName(this.authGroup.value.login);
   }
 }

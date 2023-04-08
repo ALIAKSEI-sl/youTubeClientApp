@@ -1,14 +1,16 @@
 <div class="search-input-block-item">
   <img src="../../../assets/logo.svg" alt="logo" />
-  <div class="search-input">
+  <form class="search-input" (ngSubmit)="submitForm()">
     <input
       type="text"
       placeholder="What are you want to find out?"
       class="search-tern"
-      [(ngModel)]="searchTerm"
-      (ngModelChange)="requestDelay$.next($event)"
+      [formControl]="searchControl"
     />
-  </div>
+    <button type="submit" class="button-search">
+      search
+    </button>
+  </form>
   <div
     class="search-settings"
     (click)="changeSettingsVisibility()"
