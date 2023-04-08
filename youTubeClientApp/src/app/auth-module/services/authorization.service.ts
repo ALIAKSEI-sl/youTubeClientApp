@@ -1,46 +1,53 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { BehaviorSubject, Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthorizationService {
-  userName = 'You Name';
+  isLogged$ = new BehaviorSubject(false);
 
-  isButtonVisible = false;
+  userName$ = new BehaviorSubject('You Name');
 
-  constructor(private router: Router) {}
+  isLogged: Observable<boolean>;
+
+  userName: Observable<string>;
+
+  constructor(private router: Router) {
+    this.isLogged = this.isLogged$.asObservable();
+    this.userName = this.userName$.asObservable();
+  }
 
   checkLogIn() {
     const token = localStorage.getItem('userToken');
     const name = localStorage.getItem('userName');
     if (token && name) {
-      this.isButtonVisible = !this.isButtonVisible;
-      this.userName = name;
+      this.isLogged$.next(true);
+      this.userName$.next(name);
     }
   }
 
   changeName(name: string) {
-    this.userName = name;
+    this.userName$.next(name);
     localStorage.setItem('userName', name);
   }
 
   logOut() {
+    this.isLogged$.next(false);
+    this.userName$.next('You Name');
     localStorage.removeItem('userToken');
-    this.userName = 'You Name';
+    localStorage.removeItem('userName');
     this.router.navigateByUrl('/auth');
-    this.isButtonVisible = !this.isButtonVisible;
   }
 
-  changeButtonVisibility() {
-    this.isButtonVisible = !this.isButtonVisible;
-  }
 
-  logIn(name: string) {
+  logIn() {
+    this.isLogged$.next(true);
     const token = 'eyJhbGciOiJIUzUxMiIsI';
     localStorage.setItem('userToken', token);
     this.router.navigateByUrl('/main');
-    this.changeName(name);
-    this.changeButtonVisibility();
+    
   }
 }
