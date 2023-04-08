@@ -20,7 +20,6 @@ export class LoginComponent {
     if (this.userLogin && this.userPassword) {
       this.authorizationService.logIn();
       this.authorizationService.changeName(this.userLogin);
-      this.authorizationService.changeButtonVisibility();
     } else {
       this.isLoginOrPasswordEmpty = true;
     }

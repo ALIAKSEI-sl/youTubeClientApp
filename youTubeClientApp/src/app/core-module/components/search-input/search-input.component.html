@@ -1,16 +1,13 @@
 <div class="search-input-block-item">
   <img src="../../../assets/logo.svg" alt="logo" />
-  <div class="search_input">
+  <div class="search-input">
     <input
       type="text"
       placeholder="What are you want to find out?"
       class="search-tern"
       [(ngModel)]="searchTerm"
-      (input)="sendSearchTerm()"
+      (ngModelChange)="requestDelay$.next($event)"
     />
-    <button type="submit" class="button-search" (click)="sendSearchTerm()">
-      search
-    </button>
   </div>
   <div
     class="search-settings"
