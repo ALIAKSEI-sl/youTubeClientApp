@@ -1,9 +1,16 @@
-import { IItem } from './search-item.model';
+import { IItem, IItemSearch } from './search-item.model';
+
+export interface IResponseSearch {
+  kind: string;
+  etag: string;
+  regionCode: string;
+  pageInfo: IPageInfo;
+  items: IItemSearch[];
+}
 
 export interface IResponse {
   kind: string;
   etag: string;
-  pageInfo: IPageInfo;
   items: IItem[];
 }
 
