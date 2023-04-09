@@ -1,6 +1,6 @@
 <div class="block-login">
   <h2 class="header-login">Login</h2>
-  <form [formGroup]="authGroup" class="block-form" (ngSubmit)="submitForm()">
+  <form [formGroup]="authGroup" class="block-form" (ngSubmit)="authGroup.valid && submitForm()">
     <label for="login" class="label-login">login</label>
     <input
       formControlName="login"
@@ -8,6 +8,8 @@
       id="login"
       class="input-login"
     />
+    <p class="login-isEmpty" *ngIf="isLoginEmpty()">Please enter a login email</p>
+    <p class="login-notEmail" *ngIf="isLoginEmail()">The login email is invalid</p>
     <label for="password" class="label-password">password</label>
     <input
       formControlName="password"
@@ -15,7 +17,7 @@
       id="password"
       class="input-password"
     />
-    <p class="empty-data"></p>
+    <p class="login-password" *ngIf="isLoginPassword()">Please enter a password</p>
     <button class="submit-login">Login</button>
   </form>
 </div>
@@ -25,3 +27,5 @@
 [(ngModel)]="userPassword"
 (input)="isLoginOrPasswordEmpty = false"
 (click)="logIn()" -->
+
+<!-- authGroup.valid && -->

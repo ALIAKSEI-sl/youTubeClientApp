@@ -26,6 +26,10 @@
   border: none;
 }
 
+input.ng-touched.ng-invalid{
+  border: 1px solid red;
+ }
+
 .label-login,
 .label-password {
   padding: 5px 0 5px 6px;
@@ -57,7 +61,7 @@
   cursor: pointer;
 }
 
-.empty-data {
-  padding: 10px 0 0 6px;
+.login-isEmpty, .login-notEmail, .login-password {
+  padding: 10px 0;
   color: red;
 }
