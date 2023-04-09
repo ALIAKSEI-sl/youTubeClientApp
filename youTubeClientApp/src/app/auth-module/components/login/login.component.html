@@ -17,15 +17,8 @@
       id="password"
       class="input-password"
     />
-    <p class="login-password" *ngIf="isLoginPassword()">Please enter a password</p>
+    <p class="login-password" *ngIf="isPasswordEmpty()">Please enter a password</p>
+    <p class="login-password" *ngIf="isPasswordStrong()">{{isPasswordStrong()}}</p>
     <button class="submit-login">Login</button>
   </form>
 </div>
-
-<!-- [(ngModel)]="userLogin"
-(input)="isLoginOrPasswordEmpty = false"
-[(ngModel)]="userPassword"
-(input)="isLoginOrPasswordEmpty = false"
-(click)="logIn()" -->
-
-<!-- authGroup.valid && -->

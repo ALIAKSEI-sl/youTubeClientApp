@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 import { AuthorizationService } from '../../services/authorization.service';
+import { passwordValidator } from '../../validators/password.validator';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthorizationService } from '../../services/authorization.service';
 export class LoginComponent {
   authGroup = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required, passwordValidator])
   })
 
   constructor(public authorizationService: AuthorizationService) {}
@@ -34,8 +35,14 @@ export class LoginComponent {
     return control.errors?.['email'] && control.touched;
   }
 
-  isLoginPassword(): boolean {
+  isPasswordEmpty(): boolean {
     const control = this.authGroup.controls.password;
     return control.errors?.['required'] && control.touched;
+  }
+
+  isPasswordStrong(): ValidationErrors | null { 
+    const control = this.authGroup.controls.password;
+    console.log(control.errors?.['strong'])
+    return control.errors?.['strong'];
   }
 }
