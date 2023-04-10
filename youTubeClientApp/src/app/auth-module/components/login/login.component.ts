@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 
 import { AuthorizationService } from '../../services/authorization.service';
 import { passwordValidator } from '../../validators/password.validator';
@@ -12,17 +17,20 @@ import { passwordValidator } from '../../validators/password.validator';
 export class LoginComponent {
   authGroup = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, passwordValidator])
-  })
+    password: new FormControl('', [Validators.required, passwordValidator]),
+  });
 
   constructor(public authorizationService: AuthorizationService) {}
 
   submitForm() {
-    console.log(this.authGroup.controls.login.errors?.['required']);
-    if(this.authGroup.value.login) {
-      this.authorizationService.logIn();
-      this.authorizationService.changeName(this.authGroup.value.login);
-    } 
+    if (this.authGroup.valid) {
+      if (this.authGroup.value.login) {
+        this.authorizationService.logIn();
+        this.authorizationService.changeName(this.authGroup.value.login);
+      }
+    } else {
+      this.authGroup.markAllAsTouched();
+    }
   }
 
   isLoginEmpty(): boolean {
@@ -40,9 +48,8 @@ export class LoginComponent {
     return control.errors?.['required'] && control.touched;
   }
 
-  isPasswordStrong(): ValidationErrors | null { 
+  isPasswordStrong(): ValidationErrors | null {
     const control = this.authGroup.controls.password;
-    console.log(control.errors?.['strong'])
     return control.errors?.['strong'];
   }
 }
