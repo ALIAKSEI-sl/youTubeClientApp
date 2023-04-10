@@ -1,0 +1,62 @@
+<div class="block-create-card">
+  <h2 class="header-create-card">Create new card</h2>
+  <form
+    [formGroup]="createCardGroup"
+    class="block-form"
+    (ngSubmit)="submitForm()"
+  >
+    <label for="title" class="label-title">Title</label>
+    <input formControlName="title" type="text" id="title" class="input-title" />
+    <p class="message-invalid" *ngIf="isTitleValid('required')">
+      Please enter a title
+    </p>
+    <p class="message-invalid" *ngIf="isTitleValid('min')">
+      The title is too short
+    </p>
+    <p class="message-invalid" *ngIf="isTitleValid('max')">
+      The title is too long
+    </p>
+    <label for="description" class="label-description">Description</label>
+    <input
+      formControlName="description"
+      type="text"
+      id="description"
+      class="input-description"
+    />
+    <p class="message-invalid" *ngIf="isDescriptionValid()">
+      The description is too long
+    </p>
+    <label for="card-img" class="label-img">Img</label>
+    <input
+      formControlName="imgUrl"
+      type="text"
+      id="card-img"
+      class="input-img"
+    />
+    <p class="message-invalid" *ngIf="isImgUrlValid('required')">
+      Please enter a link to the image
+    </p>
+    <p class="message-invalid" *ngIf="isImgUrlValid('url')">
+      The image link is invalid
+    </p>
+    <label for="link" class="label-link">Link video</label>
+    <input
+      formControlName="videoLink"
+      type="text"
+      id="link"
+      class="input-link"
+    />
+    <p class="message-invalid" *ngIf="isVideoLinkValid('required')">
+      Please enter a link to the video
+    </p>
+    <p class="message-invalid" *ngIf="isVideoLinkValid('url')">
+      The video link is invalid
+    </p>
+    <label for="link" class="label-data">Link video</label>
+    <input formControlName="date" type="date" id="date" class="input-date" />
+    <p class="message-invalid" *ngIf="isDateValid('required')">
+      Please enter a creation date
+    </p>
+    <button class="submit-card">Create card</button>
+  </form>
+</div>

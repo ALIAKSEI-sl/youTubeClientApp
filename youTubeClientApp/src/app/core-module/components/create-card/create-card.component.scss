@@ -1,0 +1,73 @@
+.block-create-card {
+  width: 432px;
+  padding: 37px 25px 32px 25px;
+  margin: 0 auto;
+  background: #f2f2f2;
+  border-radius: 18px;
+}
+
+.header-create-card {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 27px;
+  padding-bottom: 6px;
+}
+
+.block-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-title,
+.input-img,
+.input-link,
+.input-description,
+.input-date {
+  background: #e0e0e0;
+  height: 45px;
+  border: none;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+.label-title,
+.label-img,
+.label-link,
+.label-description,
+.label-data {
+  padding: 5px 0 5px 6px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #828282;
+}
+
+.submit-card {
+  width: 188px;
+  height: 38px;
+  background: #2f80ed;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
+  border-radius: 5px;
+  margin-left: auto;
+  margin: 22px 0 0 auto;
+  border: none;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.submit-card:hover {
+  cursor: pointer;
+}
+
+.message-invalid {
+  padding: 10px 0;
+  color: red;
+}
