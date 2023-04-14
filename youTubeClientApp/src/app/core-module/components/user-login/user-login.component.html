@@ -1,0 +1,11 @@
+<div class="user-login-block-item">
+  <p class="user-name">{{ authorizationService.userName }}</p>
+  <img src="../../../assets/login.svg" alt="user-logo" class="img-logo" />
+  <button
+    *ngIf="authorizationService.isButtonVisible"
+    class="button-log-out"
+    (click)="logOut()"
+  >
+    log out
+  </button>
+</div>

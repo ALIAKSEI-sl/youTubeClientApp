@@ -1,0 +1,31 @@
+.user-login-block-item {
+  display: flex;
+  align-items: center;
+}
+
+.img-logo {
+  margin-left: 8px;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
+}
+
+.user-name {
+  font-family: "Roboto";
+  color: #4f4f4f;
+  font-size: 12px;
+}
+
+.button-log-out {
+  width: 54px;
+  height: 24px;
+  margin-left: 8px;
+  background-color: #2f80ed;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
+  color: #ffffff;
+  border-radius: 4px;
+  border: none;
+  padding: 0;
+}
+
+.button-log-out:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,20 @@
+<div class="search-input-block-item">
+  <img src="../../../assets/logo.svg" alt="logo" />
+  <div class="search_input">
+    <input
+      type="text"
+      placeholder="What are you want to find out?"
+      class="search-tern"
+      [(ngModel)]="searchTerm"
+      (input)="sendSearchTerm()"
+    />
+    <button type="submit" class="button-search" (click)="sendSearchTerm()">
+      search
+    </button>
+  </div>
+  <div
+    class="search-settings"
+    (click)="changeSettingsVisibility()"
+    title="settings"
+  ></div>
+</div>

@@ -1,0 +1,12 @@
+<div class="search-result-block-item">
+  <app-search-item
+    *ngFor="
+      let itemResponse of youTubeResponseService.youTubeResponse
+        | filterSearch : filteringResultService.sortingBy.world
+        | sortingCountOfViews : filteringResultService.sortingBy.countOfView
+        | sortingDate : filteringResultService.sortingBy.date
+    "
+    [itemResponse]="itemResponse"
+  >
+  </app-search-item>
+</div>

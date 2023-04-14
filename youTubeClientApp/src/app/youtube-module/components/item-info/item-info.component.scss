@@ -1,0 +1,105 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.item-card {
+  display: flex;
+}
+
+.button-back {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url(../../../../assets/button-back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px 0 0px 5px;
+}
+
+.button-back:hover {
+  cursor: pointer;
+}
+
+.item-img {
+  width: 729px;
+  height: 461px;
+  border-radius: 0 0 0 5px;
+}
+
+.block-description {
+  width: 435px;
+  height: 461px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 35px 36px 24px 34px;
+  background-color: #e5e5e5;
+  border-radius: 0 5px 5px 0;
+}
+
+.item-title {
+  max-width: 240px;
+  max-height: 144px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  padding-bottom: 32px;
+}
+
+.item-date {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #828282;
+  position: absolute;
+  top: 48px;
+  right: 36px;
+}
+
+.header-description {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.item-description {
+  max-height: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #828282;
+}
+
+.block-statistics {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  line-height: 13px;
+
+  margin-bottom: 0;
+}
+
+.block-statistics span {
+  font-size: 10px;
+}
+
+.block-statistics img {
+  margin-right: 3px;
+}
+
+.block-statistics-item {
+  display: flex;
+  align-items: center;
+}
