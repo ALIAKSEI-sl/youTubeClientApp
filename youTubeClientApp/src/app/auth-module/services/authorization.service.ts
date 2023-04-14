@@ -42,7 +42,6 @@ export class AuthorizationService {
     this.router.navigateByUrl('/auth');
   }
 
-
   logIn() {
     this.isLogged$.next(true);
     const token = 'eyJhbGciOiJIUzUxMiIsI';
