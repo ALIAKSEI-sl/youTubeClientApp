@@ -26,7 +26,7 @@ export class ItemInfoComponent implements OnInit {
   commentCount = '';
 
   constructor(
-    public route: ActivatedRoute,
+    private route: ActivatedRoute,
     private youTubeResponseService: YouTubeResponseService,
     private router: Router
   ) {}
@@ -45,7 +45,7 @@ export class ItemInfoComponent implements OnInit {
       this.dislikeCount = itemResponse.statistics.dislikeCount;
       this.commentCount = itemResponse.statistics.commentCount;
     } else {
-      this.router.navigateByUrl('**');
+      this.router.navigateByUrl('/not-found');
     }
   }
 }

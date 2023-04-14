@@ -14,15 +14,17 @@ export class LoginComponent {
 
   isLoginOrPasswordEmpty = false;
 
-  constructor(public authorizationService: AuthorizationService) {}
+  constructor(private authorizationService: AuthorizationService) {}
 
   logIn() {
     if (this.userLogin && this.userPassword) {
-      this.authorizationService.logIn();
-      this.authorizationService.changeName(this.userLogin);
-      this.authorizationService.changeButtonVisibility();
+      this.authorizationService.logIn(this.userLogin);
     } else {
       this.isLoginOrPasswordEmpty = true;
     }
+  }
+
+  loginOrPasswordNotEmpty() {
+    this.isLoginOrPasswordEmpty = false;
   }
 }

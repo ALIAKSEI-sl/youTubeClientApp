@@ -6,7 +6,7 @@
     id="login"
     class="input-login"
     [(ngModel)]="userLogin"
-    (input)="isLoginOrPasswordEmpty = false"
+    (input)="loginOrPasswordNotEmpty()"
   />
   <label for="password" class="label-password">password</label>
   <input
@@ -14,7 +14,7 @@
     id="password"
     class="input-password"
     [(ngModel)]="userPassword"
-    (input)="isLoginOrPasswordEmpty = false"
+    (input)="loginOrPasswordNotEmpty()"
   />
   <p *ngIf="isLoginOrPasswordEmpty" class="empty-data">
     Enter your login and password!

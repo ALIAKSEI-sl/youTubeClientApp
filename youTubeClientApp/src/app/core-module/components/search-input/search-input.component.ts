@@ -28,9 +28,8 @@ export class SearchInputComponent {
   }
 
   sendSearchTerm() {
-    this.youTubeResponseService.sendRequest(
-      this.searchTerm.trim().toLowerCase()
-    );
+    const searchTerm = this.searchTerm.trim().toLowerCase();
+    this.youTubeResponseService.sendRequest(searchTerm);
     this.filteringResultService.resetFiltering();
     this.router.navigateByUrl('/main');
   }

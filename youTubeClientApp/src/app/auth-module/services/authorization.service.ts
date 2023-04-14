@@ -36,9 +36,11 @@ export class AuthorizationService {
     this.isButtonVisible = !this.isButtonVisible;
   }
 
-  logIn() {
+  logIn(name: string) {
     const token = 'eyJhbGciOiJIUzUxMiIsI';
     localStorage.setItem('userToken', token);
     this.router.navigateByUrl('/main');
+    this.changeName(name);
+    this.changeButtonVisibility();
   }
 }
