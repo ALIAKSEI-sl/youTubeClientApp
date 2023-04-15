@@ -6,6 +6,7 @@
       placeholder="What are you want to find out?"
       class="search-tern"
       [formControl]="searchControl"
+      (input)="submitForm()"
     />
     <button type="submit" class="button-search">search</button>
   </form>

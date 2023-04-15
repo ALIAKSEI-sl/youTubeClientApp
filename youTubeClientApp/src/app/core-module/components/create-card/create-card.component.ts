@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-card.component.scss'],
 })
 export class CreateCardComponent {
-  urlReg = /^(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+  urlReg = /^(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i; 
 
   createCardGroup = new FormGroup({
     title: new FormControl('', [
@@ -25,12 +25,13 @@ export class CreateCardComponent {
       Validators.required,
       Validators.pattern(this.urlReg),
     ]),
-    date: new FormControl(''),
+    date: new FormControl(new Date()),
   });
 
   constructor(private router: Router) {}
 
   submitForm() {
+    this.createCardGroup.controls.date.setValue(new Date());
     if (this.createCardGroup.valid) {
       this.router.navigateByUrl('/main');
     } else {
@@ -78,15 +79,6 @@ export class CreateCardComponent {
     }
     if (rules === 'url') {
       return control.hasError('pattern') && control.touched;
-    } else {
-      return false;
-    }
-  }
-
-  isDateValid(rules: string) {
-    const control = this.createCardGroup.controls.date;
-    if (rules === 'required') {
-      return control.hasError('required') && control.touched;
     } else {
       return false;
     }
