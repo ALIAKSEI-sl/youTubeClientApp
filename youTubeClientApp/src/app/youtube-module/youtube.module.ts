@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { CustomCardsComponent } from './components/custom-cards/custom-cards.component';
 import { ItemInfoComponent } from './components/item-info/item-info.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -25,6 +26,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     SortingCountOfViewsPipe,
     SortingDatePipe,
     UploadDateFormatPipe,
+    CustomCardsComponent,
   ],
   imports: [CommonModule, YoutubeRoutingModule],
 })
