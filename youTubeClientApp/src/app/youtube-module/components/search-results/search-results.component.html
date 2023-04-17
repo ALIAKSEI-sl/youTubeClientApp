@@ -1,7 +1,11 @@
 <div class="search-result-block-item">
+  <app-custom-cards
+    *ngFor="let card of customCard | async"
+    [customCard]="card"
+  ></app-custom-cards>
   <app-search-item
     *ngFor="
-      let itemResponse of youTubeResponseService.youTubeResponse
+      let itemResponse of youTubeResponse
         | filterSearch : filteringResultService.sortingBy.world
         | sortingCountOfViews : filteringResultService.sortingBy.countOfView
         | sortingDate : filteringResultService.sortingBy.date
