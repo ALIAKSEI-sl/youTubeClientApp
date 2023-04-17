@@ -14,7 +14,9 @@
         ],
         "createDefaultProgram": true
       },
-      "plugins": ["import"],
+      "plugins": [
+        "import"
+      ],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
