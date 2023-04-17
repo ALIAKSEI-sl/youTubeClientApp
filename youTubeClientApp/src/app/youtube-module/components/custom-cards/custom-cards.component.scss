@@ -1,0 +1,45 @@
+.search-result-card {
+  width: 264px;
+  height: 327px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.img-card {
+  width: 223px;
+  height: 123px;
+}
+
+.search-result-title {
+  max-height: 53px;
+  overflow: hidden;
+  text-align: center;
+  width: 223px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: #4f4f4f;
+  padding: 15px 5px;
+}
+
+.search-result-description {
+  max-height: 90px;
+  overflow: hidden;
+  padding: 0 5px;
+}
+
+.search-result-videoLink:hover {
+  padding: 0 5px;
+}
+
+.search-result-videoLink:hover {
+  cursor: pointer;
+}
