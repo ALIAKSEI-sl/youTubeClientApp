@@ -2,10 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable, switchMap } from 'rxjs';
-import {
-  IItem,
-  IItemSearch,
-} from 'src/app/youtube-module/models/search-item.model';
+import { IItemSearch } from 'src/app/youtube-module/models/search-item.model';
 import {
   IResponse,
   IResponseSearch,
@@ -15,8 +12,6 @@ import {
   providedIn: 'root',
 })
 export class YouTubeResponseService {
-  youTubeResponse: IItem[] = [];
-
   constructor(private http: HttpClient) {}
 
   getResult(searchTerm: string): Observable<IResponse> {
