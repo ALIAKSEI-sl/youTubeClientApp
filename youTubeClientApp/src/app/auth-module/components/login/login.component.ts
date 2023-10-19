@@ -18,7 +18,9 @@ export class LoginComponent {
 
   logIn() {
     if (this.userLogin && this.userPassword) {
-      this.authorizationService.logIn(this.userLogin);
+
+      this.authorizationService.logIn();
+      this.authorizationService.changeName(this.userLogin);
     } else {
       this.isLoginOrPasswordEmpty = true;
     }

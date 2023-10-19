@@ -1,9 +1,21 @@
+export interface IItemSearch {
+  kind: string;
+  etag: string;
+  id: IId;
+  snippet: ISnippet;
+}
+
 export interface IItem {
   kind: string;
   etag: string;
   id: string;
   snippet: ISnippet;
   statistics: IStatistics;
+}
+
+interface IId {
+  kind: string;
+  videoId: string;
 }
 
 interface ISnippet {
