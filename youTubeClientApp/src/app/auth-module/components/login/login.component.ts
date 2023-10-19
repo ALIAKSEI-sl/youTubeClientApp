@@ -20,7 +20,7 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required, passwordValidator]),
   });
 
-  constructor(public authorizationService: AuthorizationService) {}
+  constructor(private authorizationService: AuthorizationService) {}
 
   submitForm() {
     if (this.authGroup.valid) {
