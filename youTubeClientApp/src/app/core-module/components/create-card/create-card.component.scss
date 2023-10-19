@@ -1,16 +1,16 @@
-.block-login {
-  width: 350px;
-  padding: 28px 20px 26px 20px;
+.block-create-card {
+  width: 432px;
+  padding: 37px 25px 32px 25px;
   margin: 0 auto;
   background: #f2f2f2;
-  border-radius: 5px;
+  border-radius: 18px;
 }
 
-.header-login {
+.header-create-card {
   font-family: "Roboto";
   font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 23px;
+  line-height: 27px;
   padding-bottom: 6px;
 }
 
@@ -19,10 +19,13 @@
   flex-direction: column;
 }
 
-.input-login,
-.input-password {
+.input-title,
+.input-img,
+.input-link,
+.input-description,
+.input-date {
   background: #e0e0e0;
-  height: 37px;
+  height: 45px;
   border: none;
 }
 
@@ -30,19 +33,22 @@ input.ng-touched.ng-invalid {
   border: 1px solid red;
 }
 
-.label-login,
-.label-password {
+.label-title,
+.label-img,
+.label-link,
+.label-description,
+.label-data {
   padding: 5px 0 5px 6px;
   font-family: "Roboto";
   font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 13px;
+  line-height: 15px;
   color: #828282;
 }
 
-.submit-login {
-  width: 124px;
-  height: 30px;
+.submit-card {
+  width: 188px;
+  height: 38px;
   background: #2f80ed;
   filter: drop-shadow(2px 0px 4px #2f80ed);
   border-radius: 5px;
@@ -52,18 +58,16 @@ input.ng-touched.ng-invalid {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 15px;
+  line-height: 17px;
   color: #ffffff;
 }
 
-.submit-login:hover {
+.submit-card:hover {
   cursor: pointer;
 }
 
-.login-isEmpty,
-.login-notEmail,
-.login-password {
+.message-invalid {
   padding: 10px 0;
   color: red;
 }

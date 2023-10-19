@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {
@@ -22,7 +29,7 @@ import { YouTubeResponseService } from 'src/app/youtube-module/services/you-tube
 export class SearchInputComponent implements OnInit, OnDestroy {
   @Output() visibilitySettingsChange = new EventEmitter<boolean>();
 
-  searchTerm = '';
+  searchControl = new FormControl();
 
   areSettingsVisible = false;
 
@@ -72,5 +79,9 @@ export class SearchInputComponent implements OnInit, OnDestroy {
       debounceTime(500),
       distinctUntilChanged()
     );
+  }
+
+  submitForm() {
+    this.requestDelay$.next(this.searchControl.value);
   }
 }

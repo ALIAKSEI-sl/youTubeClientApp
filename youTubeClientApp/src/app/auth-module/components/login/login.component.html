@@ -1,23 +1,27 @@
 <div class="block-login">
   <h2 class="header-login">Login</h2>
-  <label for="login" class="label-login">login</label>
-  <input
-    type="text"
-    id="login"
-    class="input-login"
-    [(ngModel)]="userLogin"
-    (input)="loginOrPasswordNotEmpty()"
-  />
-  <label for="password" class="label-password">password</label>
-  <input
-    type="password"
-    id="password"
-    class="input-password"
-    [(ngModel)]="userPassword"
-    (input)="loginOrPasswordNotEmpty()"
-  />
-  <p *ngIf="isLoginOrPasswordEmpty" class="empty-data">
-    Enter your login and password!
-  </p>
-  <button class="submit-login" (click)="logIn()">Login</button>
+  <form [formGroup]="authGroup" class="block-form" (ngSubmit)="submitForm()">
+    <label for="login" class="label-login">login</label>
+    <input formControlName="login" type="text" id="login" class="input-login" />
+    <p class="login-isEmpty" *ngIf="isLoginEmpty()">
+      Please enter a login email
+    </p>
+    <p class="login-notEmail" *ngIf="isLoginEmail()">
+      The login email is invalid
+    </p>
+    <label for="password" class="label-password">password</label>
+    <input
+      formControlName="password"
+      type="password"
+      id="password"
+      class="input-password"
+    />
+    <p class="login-password" *ngIf="isPasswordEmpty()">
+      Please enter a password
+    </p>
+    <p class="login-password" *ngIf="isPasswordStrong()">
+      {{ isPasswordStrong() }}
+    </p>
+    <button class="submit-login">Login</button>
+  </form>
 </div>

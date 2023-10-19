@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 
 import { AuthorizationService } from '../../services/authorization.service';
+import { passwordValidator } from '../../validators/password.validator';
 
 @Component({
   selector: 'app-login',
@@ -8,25 +15,41 @@ import { AuthorizationService } from '../../services/authorization.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  userLogin = '';
-
-  userPassword = '';
-
-  isLoginOrPasswordEmpty = false;
+  authGroup = new FormGroup({
+    login: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, passwordValidator]),
+  });
 
   constructor(private authorizationService: AuthorizationService) {}
 
-  logIn() {
-    if (this.userLogin && this.userPassword) {
-
-      this.authorizationService.logIn();
-      this.authorizationService.changeName(this.userLogin);
+  submitForm() {
+    if (this.authGroup.valid) {
+      if (this.authGroup.value.login) {
+        this.authorizationService.logIn();
+        this.authorizationService.changeName(this.authGroup.value.login);
+      }
     } else {
-      this.isLoginOrPasswordEmpty = true;
+      this.authGroup.markAllAsTouched();
     }
   }
 
-  loginOrPasswordNotEmpty() {
-    this.isLoginOrPasswordEmpty = false;
+  isLoginEmpty(): boolean {
+    const control = this.authGroup.controls.login;
+    return control.errors?.['required'] && control.touched;
+  }
+
+  isLoginEmail(): boolean {
+    const control = this.authGroup.controls.login;
+    return control.errors?.['email'] && control.touched;
+  }
+
+  isPasswordEmpty(): boolean {
+    const control = this.authGroup.controls.password;
+    return control.errors?.['required'] && control.touched;
+  }
+
+  isPasswordStrong(): ValidationErrors | null {
+    const control = this.authGroup.controls.password;
+    return control.errors?.['strong'];
   }
 }

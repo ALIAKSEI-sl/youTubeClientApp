@@ -1,5 +1,5 @@
 .search-input-block-item {
-  width: 490px;
+  width: 570px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,4 +36,18 @@
     font-family: "Roboto";
     color: #929292;
   }
+}
+
+.button-search {
+  width: 80px;
+  height: 24px;
+  color: #ffffff;
+  background-color: #2f80ed;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
+  border-width: 0;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.button-search:hover {
+  cursor: pointer;
 }
