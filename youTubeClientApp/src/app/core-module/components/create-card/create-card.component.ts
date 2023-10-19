@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
+import { createCustomCards } from 'src/app/redux/actions/customCards.action';
+import { ICustomCard } from 'src/app/redux/state.models';
 
 @Component({
   selector: 'app-create-card',
@@ -25,14 +28,17 @@ export class CreateCardComponent {
       Validators.required,
       Validators.pattern(this.urlReg),
     ]),
-    date: new FormControl(''),
+    date: new FormControl(new Date()),
   });
 
-  constructor(private router: Router) {}
+  constructor(private store: Store) {}
 
   submitForm() {
+    this.createCardGroup.controls.date.setValue(new Date());
     if (this.createCardGroup.valid) {
-      this.router.navigateByUrl('/main');
+      const card = this.getFormValue(this.createCardGroup);
+      this.store.dispatch(createCustomCards({ card }));
+      this.clearForm(this.createCardGroup);
     } else {
       this.createCardGroup.markAllAsTouched();
     }
@@ -83,12 +89,18 @@ export class CreateCardComponent {
     }
   }
 
-  isDateValid(rules: string) {
-    const control = this.createCardGroup.controls.date;
-    if (rules === 'required') {
-      return control.hasError('required') && control.touched;
-    } else {
-      return false;
-    }
+  getFormValue(group: FormGroup): ICustomCard {
+    return group.getRawValue();
+  }
+
+  clearForm(form: FormGroup) {
+    form.setValue({
+      title: '',
+      description: '',
+      imgUrl: '',
+      videoLink: '',
+      date: new Date(),
+    });
+    form.markAsUntouched();
   }
 }

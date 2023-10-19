@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import {
   debounceTime,
@@ -17,6 +18,7 @@ import {
   Subscription,
   switchMap,
 } from 'rxjs';
+import { updateYouTubeResponse } from 'src/app/redux/actions/youTubeResponse.action';
 import { IResponse } from 'src/app/youtube-module/models/search-response.model';
 import { FilteringResultService } from 'src/app/youtube-module/services/filtering-result.service';
 import { YouTubeResponseService } from 'src/app/youtube-module/services/you-tube-response.service';
@@ -40,7 +42,8 @@ export class SearchInputComponent implements OnInit, OnDestroy {
   constructor(
     private youTubeResponseService: YouTubeResponseService,
     private filteringResultService: FilteringResultService,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +54,9 @@ export class SearchInputComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe((response: IResponse) => {
-        this.youTubeResponseService.youTubeResponse = response.items;
+        this.store.dispatch(
+          updateYouTubeResponse({ youTubeResponse: response.items })
+        );
       });
   }
 

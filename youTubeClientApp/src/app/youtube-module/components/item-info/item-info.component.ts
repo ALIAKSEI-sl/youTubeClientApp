@@ -1,14 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
-import { YouTubeResponseService } from '../../services/you-tube-response.service';
+import { Subscription } from 'rxjs';
+import { selectYouTubeResponse } from 'src/app/redux/selectors/customCards.selector';
+
+import { IItem } from '../../models/search-item.model';
 
 @Component({
   selector: 'app-item-info',
   templateUrl: './item-info.component.html',
   styleUrls: ['./item-info.component.scss'],
 })
-export class ItemInfoComponent implements OnInit {
+export class ItemInfoComponent implements OnInit, OnDestroy {
+  youTubeResponse!: IItem[];
+
+  youTubeResponse$!: Subscription;
+
   imgSrc = '';
 
   title = '';
@@ -26,13 +34,17 @@ export class ItemInfoComponent implements OnInit {
   commentCount = '';
 
   constructor(
-    private route: ActivatedRoute,
-    private youTubeResponseService: YouTubeResponseService,
-    private router: Router
+    public route: ActivatedRoute,
+    private router: Router,
+    private store: Store
   ) {}
 
   ngOnInit(): void {
-    const itemResponse = this.youTubeResponseService.youTubeResponse.find(
+    this.youTubeResponse$ = this.store
+      .select(selectYouTubeResponse)
+      .subscribe((response) => (this.youTubeResponse = response));
+
+    const itemResponse = this.youTubeResponse.find(
       (item) => item.id === this.route.snapshot.params['id']
     );
     if (itemResponse) {
@@ -47,5 +59,9 @@ export class ItemInfoComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/not-found');
     }
+  }
+
+  ngOnDestroy(): void {
+    this.youTubeResponse$.unsubscribe();
   }
 }

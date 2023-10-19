@@ -1,0 +1,14 @@
+<div
+  class="search-result-card"
+  appChangeColorBorder
+  [publicationDate]="'33'"
+  [typeElement]="'itemResponse'"
+>
+  <img [src]="'card.imgUrl'" alt="img-preview" class="img-card" />
+  <p>{{ customCard.date.toString() | uploadDateFormat }}</p>
+  <p class="search-result-title">{{ customCard.title }}</p>
+  <p class="search-result-description">{{ customCard.description }}</p>
+  <a [href]="customCard.videoLink" class="search-result-videoLink">{{
+    customCard.videoLink
+  }}</a>
+</div>
