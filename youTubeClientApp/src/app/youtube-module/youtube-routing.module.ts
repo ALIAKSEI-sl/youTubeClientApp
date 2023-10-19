@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { InfoPagesComponent } from './pages/info-pages/info-pages.component';
-import { MainPagesComponent } from './pages/main-pages/main-pages.component';
+import { InfoPageComponent } from './pages/info-page/info-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainPagesComponent,
+    component: MainPageComponent,
   },
   {
     path: ':id',
-    component: InfoPagesComponent,
+    component: InfoPageComponent,
   },
 ];
 

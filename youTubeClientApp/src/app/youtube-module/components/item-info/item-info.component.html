@@ -20,7 +20,7 @@
   >
     <div>
       <p class="item-title">{{ title }}</p>
-      <p class="item-date">{{ date | uploadDateFormat }}</p>
+      <p class="item-date">{{ date | date : "fullDate" }}</p>
       <p class="header-description">Description:</p>
       <p class="item-description">{{ description }}</p>
     </div>

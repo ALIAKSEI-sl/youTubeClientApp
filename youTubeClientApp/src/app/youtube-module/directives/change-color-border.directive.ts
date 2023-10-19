@@ -8,27 +8,14 @@ import { TypeElementColorDirective } from '../models/search-response.model';
 export class ChangeColorBorderDirective implements OnInit {
   @Input() publicationDate = '';
 
-  @Input() typeElement: TypeElementColorDirective | '' = '';
+  @Input() typeElement: TypeElementColorDirective | string = '';
 
   colorRgb = '';
 
   constructor(private element: ElementRef) {}
 
   ngOnInit() {
-    this.colorDefinition();
-    if (this.typeElement === 'itemResponse') {
-      this.addBorderBottom();
-    }
-    if (this.typeElement === 'item-card') {
-      this.addFilter();
-    }
-    if (this.typeElement === 'button-back') {
-      this.addBackgroundColor();
-      this.addFilter();
-    }
-    if (this.typeElement === 'block-description') {
-      this.addBorderBottom();
-    }
+    this.changeColor();
   }
 
   colorDefinition() {
@@ -61,5 +48,22 @@ export class ChangeColorBorderDirective implements OnInit {
       filter = `drop-shadow(-2px 2px 4px rgba(${this.colorRgb}, 0.5))`;
     }
     this.element.nativeElement.style.filter = filter;
+  }
+
+  changeColor() {
+    this.colorDefinition();
+    if (this.typeElement === 'itemResponse') {
+      this.addBorderBottom();
+    }
+    if (this.typeElement === 'item-card') {
+      this.addFilter();
+    }
+    if (this.typeElement === 'button-back') {
+      this.addBackgroundColor();
+      this.addFilter();
+    }
+    if (this.typeElement === 'block-description') {
+      this.addBorderBottom();
+    }
   }
 }

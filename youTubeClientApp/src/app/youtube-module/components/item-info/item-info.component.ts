@@ -57,7 +57,7 @@ export class ItemInfoComponent implements OnInit, OnDestroy {
       this.dislikeCount = itemResponse.statistics.dislikeCount;
       this.commentCount = itemResponse.statistics.commentCount;
     } else {
-      this.router.navigateByUrl('**');
+      this.router.navigateByUrl('/not-found');
     }
   }
 

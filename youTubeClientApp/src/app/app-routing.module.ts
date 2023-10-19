@@ -3,9 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './core-module/guards/auth.guard';
 import { AdminPagesComponent } from './core-module/pages/admin-pages/admin-pages.component';
+import { LoginGuard } from './core-module/guards/login.guard';
 import { NotFoundPagesComponent } from './core-module/pages/not-found-pages/not-found-pages.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full',
+  },
   {
     path: 'main',
     loadChildren: () =>
@@ -16,24 +22,19 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./auth-module/auth.module').then((m) => m.AuthModule),
+    canActivate: [LoginGuard],
   },
   {
     path: 'admin',
     component: AdminPagesComponent,
   },
   {
-    path: '',
-    redirectTo: 'main',
-    pathMatch: 'full',
-  },
-  {
-    path: 'notFound',
+    path: 'not-found',
     component: NotFoundPagesComponent,
   },
   {
     path: '**',
-    redirectTo: 'notFound',
-    pathMatch: 'full',
+    redirectTo: 'not-found',
   },
 ];
 

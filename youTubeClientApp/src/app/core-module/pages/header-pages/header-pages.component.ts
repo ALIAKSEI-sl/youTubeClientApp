@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class HeaderPagesComponent {
   areSettingsVisible = false;
 
-  changeSettingsVisibility(areVisible: boolean) {
+  changeSettingsVisibility(areVisible: boolean): void {
     this.areSettingsVisible = areVisible;
   }
 }

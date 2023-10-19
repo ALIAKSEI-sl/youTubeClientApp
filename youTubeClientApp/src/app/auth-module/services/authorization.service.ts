@@ -47,5 +47,6 @@ export class AuthorizationService {
     const token = 'eyJhbGciOiJIUzUxMiIsI';
     localStorage.setItem('userToken', token);
     this.router.navigateByUrl('/main');
+    
   }
 }
